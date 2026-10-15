@@ -1,4 +1,4 @@
-```json
+
 {
   "name": "pharma-website",
   "private": true,
@@ -20,4 +20,3 @@
     "vite": "^6.0.5"
   }
 }
-```
