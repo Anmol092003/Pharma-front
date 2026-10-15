@@ -1,3 +1,4 @@
+
 name: Deploy Pharma Website
 
 on:
@@ -19,6 +20,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    # ADD THIS SECTION
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,13 +37,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Verify Vite installation
-        run: |
-          node --version
-          npm --version
-          npm ls vite @vitejs/plugin-react
-          node node_modules/vite/bin/vite.js --version
 
       - name: Build React app
         run: npm run build
